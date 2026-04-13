@@ -1,0 +1,127 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   Color Converter – Design Tokens
+   Default = dark theme. .light class switches to light theme.
+   ============================================================ */
+
+/* ---------- DARK (default) ---------- */
+:root {
+  --background:        #111113;
+  --panel:             #1c1c1f;
+  --panel-bottom:      #18181b;
+  --panel-border:      #2e2e33;
+  --foreground:        #e8e8ea;
+  --muted:             #888890;
+  --input:             #26262c;
+  --input-border:      #3a3a42;
+  --accent:            #6b7cff;
+  --hover:             #2a2a30;
+  --slider-bg:         #2e2e36;
+  --radius:            0.75rem;
+
+  /* shadcn aliases */
+  --border:            var(--panel-border);
+  --ring:              var(--accent);
+  --card:              var(--panel);
+  --card-foreground:   var(--foreground);
+  --popover:           var(--panel);
+  --popover-foreground: var(--foreground);
+  --primary:           var(--accent);
+  --primary-foreground: #ffffff;
+  --secondary:         var(--hover);
+  --secondary-foreground: var(--foreground);
+  --muted-foreground:  var(--muted);
+  --destructive:       oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+}
+
+/* ---------- LIGHT theme ---------- */
+.light {
+  --background:        #f4f4f6;
+  --panel:             #ffffff;
+  --panel-bottom:      #f9f9fb;
+  --panel-border:      #e2e2e8;
+  --foreground:        #111113;
+  --muted:             #6b6b78;
+  --input:             #f0f0f4;
+  --input-border:      #d0d0da;
+  --accent:            #5a6ef8;
+  --hover:             #ebebef;
+  --slider-bg:         #dcdce4;
+
+  /* shadcn aliases */
+  --border:            var(--panel-border);
+  --ring:              var(--accent);
+  --card:              var(--panel);
+  --card-foreground:   var(--foreground);
+  --popover:           var(--panel);
+  --popover-foreground: var(--foreground);
+  --primary:           var(--accent);
+  --primary-foreground: #ffffff;
+  --secondary:         var(--hover);
+  --secondary-foreground: var(--foreground);
+  --muted-foreground:  var(--muted);
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+
+  --color-background:      var(--background);
+  --color-foreground:      var(--foreground);
+  --color-muted:           var(--muted);
+  --color-panel:           var(--panel);
+  --color-panel-bottom:    var(--panel-bottom);
+  --color-panel-border:    var(--panel-border);
+  --color-input:           var(--input);
+  --color-input-border:    var(--input-border);
+  --color-accent:          var(--accent);
+  --color-hover:           var(--hover);
+  --color-slider-bg:       var(--slider-bg);
+  --color-border:          var(--border);
+  --color-ring:            var(--ring);
+  --color-card:            var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary:         var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --radius-sm:  calc(var(--radius) - 4px);
+  --radius-md:  calc(var(--radius) - 2px);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    background-color: var(--background);
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Remove default range-input appearance so custom tracks show */
+  input[type='range'] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+  }
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  /* Hide number input arrows */
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
