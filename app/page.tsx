@@ -115,25 +115,25 @@ export default function Home() {
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-4 border-b border-panel-border">
         <div>
-          <h1 className="text-lg font-semibold text-foreground leading-tight">
+          <h1 className="text-xl font-semibold text-foreground leading-tight">
             {t.appTitle}
           </h1>
-          <p className="text-xs text-muted mt-0.5">{t.appSubtitle}</p>
+          <p className="text-sm text-muted mt-1">{t.appSubtitle}</p>
         </div>
         <div className="flex items-center gap-2">
           {/* Theme toggle */}
           <button
             onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
-            className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-md border border-panel-border text-muted hover:text-foreground hover:border-accent transition-colors"
+            className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-md border border-panel-border text-muted hover:text-foreground hover:border-accent transition-colors"
             aria-label={theme === 'dark' ? t.themeToggleLight : t.themeToggleDark}
           >
-            {theme === 'dark' ? <Sun size={13} /> : <Moon size={13} />}
+            {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
             <span>{theme === 'dark' ? t.themeToggleLight : t.themeToggleDark}</span>
           </button>
           {/* Language toggle */}
           <button
             onClick={() => setLang((l) => (l === 'pt-BR' ? 'en' : 'pt-BR'))}
-            className="text-xs font-medium px-3 py-1.5 rounded-md border border-panel-border text-muted hover:text-foreground hover:border-accent transition-colors"
+            className="text-sm font-medium px-4 py-2 rounded-md border border-panel-border text-muted hover:text-foreground hover:border-accent transition-colors"
             aria-label="Trocar idioma"
           >
             {t.langToggle}
@@ -142,7 +142,7 @@ export default function Home() {
       </header>
 
       {/* Content */}
-      <div className="px-4 sm:px-6 py-6 flex flex-col gap-5 max-w-screen-2xl mx-auto">
+      <div className="px-6 sm:px-8 py-8 flex flex-col gap-8 max-w-screen-2xl mx-auto">
 
         {/* ─── Main picker panel ─── */}
         <ColorPickerPanel
@@ -163,30 +163,30 @@ export default function Home() {
         <div className="flex flex-wrap items-center gap-3">
           <button
             onClick={() => setShow3D(!show3D)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all border
+            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all border
               ${show3D 
                 ? 'bg-accent text-accent-foreground border-accent' 
                 : 'bg-panel text-muted border-panel-border hover:border-accent hover:text-foreground'}`}
             aria-pressed={show3D}
           >
-            <Box size={14} />
+            <Box size={16} />
             <span>{show3D ? t.hideAll3D : t.showAll3D}</span>
           </button>
 
           {show3D && (
             <button
               onClick={() => setAutoRotate(!autoRotate)}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-panel text-muted border border-panel-border hover:border-accent hover:text-foreground transition-all"
+              className="flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-semibold bg-panel text-muted border border-panel-border hover:border-accent hover:text-foreground transition-all"
               aria-pressed={!autoRotate}
             >
-              {autoRotate ? <Pause size={14} /> : <Play size={14} />}
+              {autoRotate ? <Pause size={16} /> : <Play size={16} />}
               <span>{autoRotate ? t.stopRotation : t.startRotation}</span>
             </button>
           )}
         </div>
 
         {/* ─── Format cards row ─── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
 
           {/* RGB */}
           <FormatCard
@@ -255,7 +255,7 @@ export default function Home() {
         </div>
 
         {/* Footer note */}
-        <p className="text-xs text-muted text-center pb-2">{t.footerNote}</p>
+        <p className="text-sm text-muted text-center pb-4 opacity-80">{t.footerNote}</p>
       </div>
     </main>
   );

@@ -364,7 +364,7 @@ export function ColorPickerPanel({
 
         {/* HEX row */}
         <div className="flex items-center gap-2">
-          <span className="text-xs text-muted font-mono uppercase tracking-widest w-8">{t.hexLabel}</span>
+          <span className="text-sm text-muted font-mono uppercase tracking-widest w-10">{t.hexLabel}</span>
           <input
             type="text"
             value={hexInput}
@@ -396,9 +396,9 @@ export function ColorPickerPanel({
               className="bg-input rounded-md px-1 py-1.5 hover:bg-hover transition-colors group text-center"
               title={`${t.copyLabel}: ${value}`}
             >
-              <p className="text-xs text-muted leading-none mb-0.5">{label}</p>
-              <div className="flex items-center justify-center gap-0.5">
-                <p className="text-xs font-mono text-foreground leading-snug truncate">
+              <p className="text-sm text-muted leading-none mb-1">{label}</p>
+              <div className="flex items-center justify-center gap-1">
+                <p className="text-sm font-mono text-foreground leading-snug truncate">
                   {value}
                 </p>
                 {copiedFormat === label

@@ -100,7 +100,7 @@ function SliderRow({ label, value, min, max, unit, trackColor, onChange }: Slide
   return (
     <div className="flex items-center gap-2">
       {/* Label */}
-      <span className="text-xs text-muted w-14 shrink-0 truncate">{label}</span>
+      <span className="text-sm text-muted w-16 shrink-0 truncate">{label}</span>
 
       {/* Track — click / drag anywhere on it */}
       <div
@@ -145,10 +145,10 @@ function SliderRow({ label, value, min, max, unit, trackColor, onChange }: Slide
         max={max}
         value={safeValue}
         onChange={handleNumberChange}
-        className="w-12 bg-input text-foreground text-xs font-mono text-right py-0.5 px-1 rounded border border-input-border outline-none focus:border-accent"
+        className="w-14 bg-input text-foreground text-sm font-mono text-right py-1 px-2 rounded border border-input-border outline-none focus:border-accent"
         aria-label={`${label} valor numérico`}
       />
-      {unit && <span className="text-xs text-muted w-4 shrink-0">{unit}</span>}
+      {unit && <span className="text-sm text-muted w-5 shrink-0">{unit}</span>}
     </div>
   );
 }
@@ -206,19 +206,19 @@ export function FormatCard({
   };
 
   return (
-    <div className="bg-panel border border-panel-border rounded-xl p-4 flex flex-col gap-3 min-w-0">
+    <div className="bg-panel border border-panel-border rounded-xl p-6 flex flex-col gap-4 min-w-0">
       {/* Header */}
       <div className="flex items-center justify-between">
         <span className="text-sm font-semibold text-foreground tracking-wide">{title}</span>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1 px-2 py-1 rounded-md text-xs text-muted hover:text-foreground hover:bg-hover transition-colors"
+          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-sm text-muted hover:text-foreground hover:bg-hover transition-colors"
           title={t.copyLabel}
           aria-label={`${t.copyLabel} ${title}`}
         >
           {copied
-            ? <><Check size={12} className="text-green-400" /><span className="text-green-400">{t.copiedLabel}</span></>
-            : <><Copy size={12} /><span>{t.copyLabel}</span></>
+            ? <><Check size={14} className="text-green-400" /><span className="text-green-400">{t.copiedLabel}</span></>
+            : <><Copy size={14} /><span>{t.copyLabel}</span></>
           }
         </button>
       </div>
@@ -243,8 +243,8 @@ export function FormatCard({
       {children}
 
       {/* Paste / format field */}
-      <div className="mt-auto pt-1">
-        <p className="text-xs text-muted mb-1">{t.formatCode}</p>
+      <div className="mt-auto pt-2">
+        <p className="text-sm text-muted mb-1.5">{t.formatCode}</p>
         <input
           type="text"
           value={pasteValue}
@@ -252,19 +252,19 @@ export function FormatCard({
           onBlur={handlePasteBlur}
           placeholder={placeholder}
           spellCheck={false}
-          className={`w-full bg-input text-xs font-mono py-1.5 px-2 rounded-md border outline-none transition-colors
+          className={`w-full bg-input text-sm font-mono py-2 px-3 rounded-md border outline-none transition-colors
             ${pasteError ? 'border-red-500 text-red-400' : 'border-input-border text-foreground focus:border-accent'}`}
           aria-label={`${t.formatCode} ${title}`}
         />
         {pasteError && (
-          <p className="text-xs text-red-400 mt-1">{t.invalidFormat}</p>
+          <p className="text-sm text-red-400 mt-1.5">{t.invalidFormat}</p>
         )}
       </div>
 
       {/* 3-D model area — controlled externally */}
       {model3D && showModel && (
-        <div className="mt-1">
-          <p className="text-xs text-muted text-center mb-2">{t.model3DHint}</p>
+        <div className="mt-2">
+          <p className="text-sm text-muted text-center mb-3">{t.model3DHint}</p>
           {model3D}
         </div>
       )}
